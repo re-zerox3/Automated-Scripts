@@ -17,3 +17,7 @@ rm $url/recon/tmp_assets.txt
 #rm $url/recon/tmp_assets.txt
 
 
+echo "[+] Probing for subdomains..."
+cat $url/recon/assetfinder.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443' >> $url/recon/aliveDomains.txt
+
+
